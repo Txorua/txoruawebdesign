@@ -5,7 +5,7 @@ backend:
 media_folder: "assets/images/uploads"
 
 collections:
-  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+  - name: "posts" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
     folder: "_posts" # The path to the folder where the documents are stored
     create: true # Allow users to create new documents in this collection
@@ -16,4 +16,3 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "thumbnail", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
-
