@@ -20,9 +20,9 @@ collections:
     label: "Data"
     files:
       - label: "Menú principal"
-        name: "main-menu"
-        file: "_data/main-menu.yml"
+        name: "mainMenu"
         widget: "list"
         fields:
           - {label: Title, name: title,widget: string}
           - {label: Url, name: url, widget: string}
+        file: "_data/main-menu.yml"
