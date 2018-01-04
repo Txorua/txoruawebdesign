@@ -21,8 +21,11 @@ collections:
     files:
       - label: "Menú principal"
         name: "mainMenu"
-        widget: "list"
-        fields:
-          - {label: Title, name: title,widget: string}
-          - {label: Url, name: url, widget: string}
         file: "_data/main-menu.yml"
+        fields:
+          - label: Items
+            name: items
+            widget: "list"
+            fields:
+              - {label: Title, name: title,widget: string}
+              - {label: Url, name: url, widget: string}
