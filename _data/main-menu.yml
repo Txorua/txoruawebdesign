@@ -1,2 +1,9 @@
-title: Conatcto
-url: '#contacto'
+items:
+  - title: Inicio
+    url: /
+  - title: Acerca
+    url: '#acerca'
+  - title: Trabajos
+    url: '#trabajos'
+  - title: Contacto
+    url: '#contacto'
