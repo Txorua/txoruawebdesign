@@ -20,8 +20,8 @@ collections:
     label: "Data"
     files:
       - label: "Menú principal"
-         name: "main-menu"
-         file: "_data/main-menu.yml"
-         fields:
-           - {label: Title, name: title,widget: string}
-           - {label: Url, name: url, widget: string}
+        name: "main-menu"
+        file: "_data/main-menu.yml"
+        fields:
+          - {label: Title, name: title,widget: string}
+          - {label: Url, name: url, widget: string}
