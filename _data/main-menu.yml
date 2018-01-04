@@ -1,6 +1,4 @@
 items:
-  - title: Inicio
-    url: /
   - title: Acerca
     url: '#acerca'
   - title: Trabajos
