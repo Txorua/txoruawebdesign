@@ -1,8 +1,2 @@
-- title: "Inicio"
-  url: "/"
-- title: "Acerca"
-  url: "#acerca"
-- title: "Trabajos"
-  url: "#trabajos"
-- title: "Contacto"
-  url: "#contacto"
+title: Conatcto
+url: '#contacto'
