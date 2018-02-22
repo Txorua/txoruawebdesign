@@ -30,7 +30,7 @@ markdown: kramdown
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
-remote_theme: igarbla/jekyll-theme-oria
+remote_theme: Txorua/jekyll-theme-simple
 
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
