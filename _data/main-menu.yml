@@ -1,7 +1,9 @@
 items:
-  - title: Acerca
-    url: '#acerca'
   - title: Trabajos
     url: '#trabajos'
+  - title: Acerca
+    url: '#acerca'
+  - title: Blog
+    url: /blog
   - title: Contacto
     url: '#contacto'
