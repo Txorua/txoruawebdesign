@@ -14,8 +14,19 @@ collections:
       - {label: "Layout", name: "layout", widget: "hidden", default: "post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "thumbnail", widget: "image", required: false}
+      - {label: "Featured Image", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "banners"
+    label: "Banners"
+    folder: "_banners"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Tag Line", name: "tagline", widget: "string"}
+      - {label: "Background Image", name: "image", widget: "image"}
+
   - name: "data"
     label: "Data"
     files:
