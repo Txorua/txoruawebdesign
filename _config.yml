@@ -35,15 +35,30 @@ remote_theme: Txorua/twd-jt-simple
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+ - README.md
+ - Gemfile
+ - Gemfile.lock
+ - package.json
+ - package-lock.json
+ - gulpfile.js
+ - node_modules
+ - vendor/bundle/
+ - vendor/cache/
+ - vendor/gems/
+ - vendor/ruby/
 
+collections_dir: content
 collections:
+  pages:
+    output: true
   banners:
   trabajos:
+
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      layout: post
+      permalink: /blog/:title
