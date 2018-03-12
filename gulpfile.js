@@ -11,6 +11,7 @@ runSequence.options.ignoreUndefinedTasks = true
 const composer = require('gulp-uglify/composer')
 const uglifyes = require('uglify-es')
 const minify = composer(uglifyes, console)
+const cleanCSS = require('gulp-clean-css')
 
 gulp.task('resize-images', function () {
   const frontEndImages = gulp.src('assets/images/uploads/*')
@@ -47,6 +48,10 @@ gulp.task('uglify', function (done) {
   gulp.src('_site/assets/js/*.js')
     .pipe(minify())
     .pipe(gulp.dest('_site/assets/js'))
+
+  gulp.src('_site/assets/main.css')
+    .pipe(cleanCSS({compability: 'ie8'}))
+    .pipe(gulp.dest('_site/assets'))
 })
 
 gulp.task('default', function (done) {

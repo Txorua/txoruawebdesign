@@ -27,6 +27,7 @@
   },
   "description": "Txorua Web Design web site",
   "devDependencies": {
+    "gulp-clean-css": "^3.9.3",
     "gulp-uglify": "^3.0.0",
     "uglify-es": "^3.3.9"
   }
