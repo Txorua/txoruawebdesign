@@ -11,7 +11,7 @@ Trasteando con [jekyll][jekyll] me he topado con un problema que estaba empezand
 La solución si usas vim
 
 {% highlight vim %}
-:set ff=unix
+    :set ff=unix
 {% endhighlight %}
 
 Vía [.gitignore file not ignoring][stackoverflow].

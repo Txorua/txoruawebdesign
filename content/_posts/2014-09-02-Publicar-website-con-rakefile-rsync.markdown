@@ -11,15 +11,15 @@ categories:
 Un método rápido y sencillo de automatizar el deploy del website es utilizar rake, configurando una tarea que use rsync. Ésta se describe en el fichero *Rakefile* de la siguiente manera.
 
 {% highlight vim %}
-desc "Publicar website"
-task :deploy do
-  puts "Publicando website..."
-  user   = "example"
-  server = "example.com"
-  path   = "www/"
-  sh "rsync -rtzh --delete _site/ #{user}@#{server}:#{path}"
-  puts "Website publicado"
-end
+    desc "Publicar website"
+    task :deploy do
+      puts "Publicando website..."
+      user   = "example"
+      server = "example.com"
+      path   = "www/"
+      sh "rsync -rtzh --delete _site/ #{user}@#{server}:#{path}"
+      puts "Website publicado"
+    end
 {% endhighlight %}
 
 donde *user* es el nombre de usuario en el server, *server* es el servidor y *path* el directorio donde publicar el sitio.

@@ -9,9 +9,9 @@ categories:
 Si quieres instalar ruby con [rvm][rvm] en un entorno donde careces de privilegios de superusuario, como puede ser un hosting, debes debes deasativar *autolibs*:
 
 {% highlight bash %}
-$ rvm autolibs disable
-$ rvm requirements
-$ rvm install ruby
+    $ rvm autolibs disable
+    $ rvm requirements
+    $ rvm install ruby
 {% endhighlight %}
 
 vía [How to install RVM system requirements without giving sudo for rvm user][stackoverflow].

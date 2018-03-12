@@ -8,33 +8,47 @@ categories:
 Simple plugin para [Jekyll][jekyll] para crear un workflow que permite tener borradores y publicarlos cuando gustes.
 Te bajas [el plugin][git] y lo guardas en la carpeta
 
-{% highlight bash %}\_plugins{% endhighlight %}
+{% highlight bash %}
+    \_plugins
+{% endhighlight %}
 
 creas las carpetas
 
-{% highlight bash %}\_drafts{% endhighlight %}
+{% highlight bash %}
+    \_drafts
+{% endhighlight %}
 
 y
 
-{% highlight bash %}\_plublish{% endhighlight %}
+{% highlight bash %}
+    \_plublish
+{% endhighlight %}
 
 y ya está.
 
 Ahora solo has de crear tus posts en la carperta
 
-{% highlight bash %}\_drafts{% endhighlight %}
+{% highlight bash %}
+    \_drafts
+{% endhighlight %}
 
 sin necesidad de prefijar el archivo con la fecha; cuando hayas terminado y desees publicarlo, lo mueves a la carperta
 
-{% highlight bash %}\_publish{% endhighlight %}
+{% highlight bash %}
+    \_publish
+{% endhighlight %}
 
 y el plugin se encarga se renombrar el archivo prefijandolo con la fecha de publicación y moverlo a la carpeta
 
-{% highlight bash %}\_posts{% endhighlight %}.
+{% highlight bash %}
+    \_posts
+{% endhighlight %}.
 
 A los borradores debes de incluirles en la cabecera una etiqueta
 
-{% highlight bash %}date: unpublished{% endhighlight %}
+{% highlight yaml %}
+    date: unpublished
+{% endhighlight %}
 
 y una vez publicado el plugin lo sustituirá con el <span lang="en">timestamp</span> de la publicación.
 

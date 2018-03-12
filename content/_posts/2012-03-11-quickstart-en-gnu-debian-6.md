@@ -23,13 +23,13 @@ git clone --branch master http://git.drupal.org/project/quickstart.git
 Después de crear un sitio con:
 
 {% highlight bash %}
-drush qc --domain=misitio.dev --profile=minimal
+    $ drush qc --domain=misitio.dev --profile=minimal
 {% endhighlight %}
 
 Hay que recargar squid3 con:
 
 {% highlight bash %}
-sudo service squid3 reload
+    $ sudo service squid3 reload
 {% endhighlight %}
 
 [Documentación de Quickstart][drupal]
