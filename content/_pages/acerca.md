@@ -1,7 +1,11 @@
 ---
-layout: page
 title: Acerca
+layout: page
 permalink: /acerca
+heading: Acerca
+intro: >-
+  Mi nombre es Iñaki García y me dedico al desarrollo y diseño de sitios web
+  desde 2014.
 ---
 
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
