@@ -9,5 +9,5 @@ intro: >-
 ---
 {% assign posts = site.posts %}
 {% for post in posts %}
-- [{{ post.title }}]({{ post.url }}) &bull; {{ page.date | date: '%d-%m-%Y' }}
+- [{{ post.title }}]({{ post.url }}) &bull; {{ post.date | date: '%d-%m-%Y' }}
 {% endfor %}
