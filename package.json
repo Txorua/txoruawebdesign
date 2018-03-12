@@ -26,5 +26,8 @@
     "run-sequence": "^2.2.1"
   },
   "description": "Txorua Web Design web site",
-  "devDependencies": {}
+  "devDependencies": {
+    "gulp-uglify": "^3.0.0",
+    "uglify-es": "^3.3.9"
+  }
 }

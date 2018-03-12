@@ -7,6 +7,10 @@ const imageResize = require('gulp-image-resize')
 // const newer = require('gulp-newer')
 const runSequence = require('run-sequence')
 runSequence.options.ignoreUndefinedTasks = true
+// const uglify = require('gulp-uglify')
+const composer = require('gulp-uglify/composer')
+const uglifyes = require('uglify-es')
+const minify = composer(uglifyes, console)
 
 gulp.task('resize-images', function () {
   const frontEndImages = gulp.src('assets/images/uploads/*')
@@ -39,6 +43,12 @@ gulp.task('jekyll-build', function (done) {
   return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,_config-translations.yml'], {stdio: 'inherit'}).on('close', done)
 })
 
+gulp.task('uglify', function (done) {
+  gulp.src('_site/assets/js/*.js')
+    .pipe(minify())
+    .pipe(gulp.dest('_site/assets/js'))
+})
+
 gulp.task('default', function (done) {
-  runSequence('resize-images', 'jekyll-build', done)
+  runSequence('resize-images', 'jekyll-build', 'uglify', done)
 })
