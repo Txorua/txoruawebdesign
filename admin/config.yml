@@ -40,6 +40,7 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Tag Line", name: "tagline", widget: "string"}
+      - {label: "Orden", name: "order", widget: "number", default: 0}
       - {label: "Background Image", name: "image", widget: "image"}
 
   - name: "data"
