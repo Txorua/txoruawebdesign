@@ -5,13 +5,13 @@ permalink: /
 ---
 
 <section class="services">
-  <div class="sercices__item>
+  <div class="services__item">
 Research
   </div>
-  <div class="sercices__item>
+  <div class="services__item">
 Content Strategy
   </div>
-  <div class="sercices__item>
+  <div class="services__item">
 Development
   </div>
 </section>
