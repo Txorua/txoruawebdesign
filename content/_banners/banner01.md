@@ -1,7 +1,6 @@
 ---
-title: Soluciones web que funcionan
-tagline: Elegantes y efectivas páginas Web
-order: '10'
+title: Diseño de soluciones web
+tagline: Simples, elegantes & funcionales
+order: '0'
 image: /assets/images/uploads/5ntkpxqt54y-sai-kiran-anagani.jpg
 ---
-
