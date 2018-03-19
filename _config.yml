@@ -26,6 +26,7 @@ github_username:  igarbla
 
 # Build settings
 markdown: kramdown
+languages: ['es']
 #theme: minima
 plugins:
   - jekyll-feed
