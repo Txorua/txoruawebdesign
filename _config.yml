@@ -84,13 +84,13 @@ pwa:
       strategy: networkFirst
     - route: "'/api/pic'"
       strategy: cacheFirst
-    - route: '/acerca'
+    - route: "'/acerca'"
       strategy: networkFirst
-    - route: '/blog'
+    - route: "'/blog'"
       strategy: networkFirst
-    - route: '/trabajos'
+    - route: "'/trabajos'"
       strategy: networkFirst
-    - route: '/contacto'
+    - route: "'/contacto'"
       strategy: networkFirst
-    - route: '/404.html'
+    - route: "'/404.html'"
       strategy: networkFirst
