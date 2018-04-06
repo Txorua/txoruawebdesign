@@ -77,10 +77,10 @@ pwa:
     - "{assets}/**/*.{js,css,woff,woff2}"
     - - "{assets}/**/*.{png,jpg,svg}"
     - /index.html
-    - /acerca.html
+    - /acerca
     - /blog.html
-    - /trabajos.html
-    - /contacto.html
+    - /trabajos
+    - /contacto
     - /404.html
   precache_glob_ignores:
     - sw-register.js
