@@ -75,6 +75,7 @@ pwa:
   precache_glob_patterns:
     - "{js,css,fonts}/**/*.{js,css,woff,woff2}"
     - "{assets}/**/*.{js,css,woff,woff2}"
+    - - "{assets}/**/*.{png,jpg,svg}"
     - /index.html
     - /acerca.html
     - /blog.html
