@@ -74,12 +74,12 @@ pwa:
   precache_glob_directory: /
   precache_glob_patterns:
     - "{js,css,fonts}/**/*.{js,css,woff,woff2}"
-    - /index.html
-    - /acerca.html
-    - /blog.html
-    - /trabajos.html
-    - /contacto.html
-    - /404.html
+    - /
+    - /acerca
+    - /blog
+    - /trabajos
+    - /contacto
+    - /404
   precache_glob_ignores:
     - sw-register.js
   runtime_cache:
