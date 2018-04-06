@@ -2,7 +2,7 @@
     "name": "Txorua Web Design",
     "short_name": "TWD",
     "description": "A simply readable Hacker News app.",
-    "start_url": ".",
+    "start_url": "/",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "display": "fullscreen",
