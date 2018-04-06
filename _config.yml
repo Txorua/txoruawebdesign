@@ -77,11 +77,6 @@ pwa:
     - "{assets}/**/*.{js,css,woff,woff2}"
     - - "{assets}/**/*.{png,jpg,svg}"
     - /index.html
-    - /acerca
-    - /blog.html
-    - /trabajos
-    - /contacto
-    - /404.html
   precache_glob_ignores:
     - sw-register.js
   runtime_cache:
@@ -89,3 +84,13 @@ pwa:
       strategy: networkFirst
     - route: "'/api/pic'"
       strategy: cacheFirst
+    - route: /acerca
+      strategy: networkFirst
+    - route: /blog
+      strategy: networkFirst
+    - route: /trabajos
+      strategy: networkFirst
+    - route: /contacto
+      strategy: networkFirst
+    - route: /404.html
+      strategy: networkFirst
