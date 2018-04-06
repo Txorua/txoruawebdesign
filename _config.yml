@@ -31,6 +31,7 @@ languages: ['es']
 plugins:
   - jekyll-feed
   - jekyll-remote-theme
+  - jekyll-pwa-plugin
 remote_theme: Txorua/twd-jt-simple
 
 # Exclude from processing.
@@ -63,3 +64,22 @@ defaults:
     values:
       layout: post
       permalink: /blog/:title
+
+## PWA
+pwa:
+  sw_filename: sw.js
+  dest_js_directory: js
+  cache_name: txorua-web-design-pwa
+  precache_recent_posts_num: 12
+  precache_glob_directory: /
+  precache_glob_patterns:
+    - "{js,css,fonts}/**/*.{js,css,woff,woff2}"
+    - /index.html
+    - /about.html
+  precache_glob_ignores:
+    - sw-register.js
+  runtime_cache:
+    - route: /^api\/getdata/
+      strategy: networkFirst
+    - route: "'/api/pic'"
+      strategy: cacheFirst
