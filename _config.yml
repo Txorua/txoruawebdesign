@@ -86,12 +86,12 @@ pwa:
     - route: "'/api/pic'"
       strategy: cacheFirst
     - route: "'/acerca'"
-      strategy: networkFirst
+      strategy: cacheFirst
     - route: "'/blog'"
-      strategy: networkFirst
+      strategy: cacheFirst
     - route: "'/trabajos'"
-      strategy: networkFirst
+      strategy: cacheFirst
     - route: "'/contacto'"
-      strategy: networkFirst
+      strategy: cacheFirst
     - route: "'/404.html'"
-      strategy: networkFirst
+      strategy: cacheFirst
