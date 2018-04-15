@@ -3,10 +3,8 @@ self.addEventListener('install', function (event) {
     caches.open('v2').then(function (cache) {
       return cache.addAll([
         'index.html',
-        '/assets/js/app.js',
-        '/assets/images/*',
+        '/assets/js/main.js',
         '/blog',
-        '/blog/*',
         '/acerca',
         '/trabajos',
         '/contacto'
