@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Publicando el website con Rakefile y rsync"
+title: "Publicar el website con Rakefile y rsync"
 date: "2014-09-02 10:37:57"
 categories:
  - rsync
