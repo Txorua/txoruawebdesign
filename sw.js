@@ -1,19 +1,30 @@
+---
+layout: null
+---
+var urlsToCache = [];
+
+// Cache assets
+{% for asset in site.static_files %}
+    {% if asset.path contains '/assets/images' %}
+    urlsToCache.push("{{ file.path }}")
+    {% endif %}
+{% endfor %}
+
+// Cache posts
+{% for post in site.posts %}
+  urlsToCache.push("{{ post.url }}")
+{% endfor %}
+
+// Cache pages
+{% for page in site.html_pages %}
+  urlsToCache.push("{{ page.url }}")
+{% endfor %}
+
+
 self.addEventListener('install', function (event) {
   event.waitUntil(
     caches.open('v2').then(function (cache) {
-      return cache.addAll([
-        'index.html',
-        '/assets/js/main.js',
-        '/blog',
-        '/acerca',
-        '/trabajos',
-        '/contacto',
-        '/assets/images/*',
-        '/assets/images/uploads/*',
-        '/assets/images/large/*',
-        '/assets/images/medium/*',
-        '/assets/images/small/*'
-      ])
+      return cache.addAll(urlsToCache)
     })
   )
 })
