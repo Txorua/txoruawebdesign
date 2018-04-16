@@ -7,7 +7,12 @@ self.addEventListener('install', function (event) {
         '/blog',
         '/acerca',
         '/trabajos',
-        '/contacto'
+        '/contacto',
+        '/assets/images/*',
+        '/assets/images/uploads/*',
+        '/assets/images/large/*',
+        '/assets/images/medium/*',
+        '/assets/images/small/*'
       ])
     })
   )
