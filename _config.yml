@@ -51,7 +51,7 @@ exclude:
 
 collections_dir: content
 collections:
-  pages:
+  paginas:
     output: true
   banners:
   trabajos:

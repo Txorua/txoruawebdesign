@@ -16,8 +16,9 @@ var urlsToCache = [];
 {% endfor %}
 
 // Cache pages
-{% for page in site.html_pages %}
-  urlsToCache.push("{{ page.url }}")
+{% for page in site.paginas %}
+  urlsToCache.push("{{ page.permalink }}")
+  console.log("{{ page.permalink }}")
 {% endfor %}
 
 
