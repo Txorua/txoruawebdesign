@@ -4,11 +4,10 @@ layout: null
 var urlsToCache = [];
 
 // Cache assets
-{% for asset in site.static_files %}
-    {% if asset.path contains '/assets/images' %}
-    urlsToCache.push("{{ asset.path }}")
-    console.log("{{ asset.path }}")
-    {% endif %}
+{% assign cache_images = site.static_files | where: 'cache', true %}
+{% for asset in cache_images %}
+  urlsToCache.push("{{ asset.path }}")
+  console.log("{{ asset.path }}")
 {% endfor %}
 
 // Cache posts

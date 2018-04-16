@@ -63,3 +63,11 @@ defaults:
     values:
       layout: post
       permalink: /blog/:title
+  - scope:
+      path: "assets/images"
+    values:
+      cache: true
+  - scope:
+      path: "assets/images/uploads"
+    values:
+      cache: false
