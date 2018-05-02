@@ -11,7 +11,9 @@
       .then( staticCache => {
         return staticCache.addAll([
           '/assets/main.css',
-          '/assets/js/main.js'
+          '/assets/js/main.js',
+          '/',
+          '/acerca'
         ])
       })
     )
