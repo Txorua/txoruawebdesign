@@ -1,6 +1,11 @@
 (function () {
-  const version = 'V0.03'
+  const version = 'V0.04'
   const staticCacheName = version + 'staticfiles'
+  const imageCacheName = 'images'
+  const cacheList = [
+    staticCacheName,
+    imageCacheName
+  ]
 
   // Install Event
   addEventListener('install', installEvent => {
@@ -14,10 +19,7 @@
         // Must be cached
         return staticCache.addAll([
           '/assets/main.css',
-          '/assets/js/main.js',
-          '/',
-          '/acerca',
-          '/offline.html'
+          '/assets/js/main.js'
         ])
       })
     )
@@ -30,7 +32,7 @@
       .then( cacheNames => {
         return Promise.all(
           cacheNames.map( cacheName => {
-            if (cacheName != staticCacheName) {
+            if (!cacheList.includes(cacheName)) {
               return caches.delete(cacheName)
             }
           })
@@ -46,17 +48,52 @@
   addEventListener('fetch', fetchEvent => {
     console.log('The service worker is listening.')
     const request = fetchEvent.request
-    fetchEvent.respondWith(
-      caches.match(request)
-        .then(responseFromCache => {
-          if (responseFromCache !== undefined) {
+
+    // USer request HTML
+    if (request.headers.get('Accept').includes('text/html')) {
+      fetchEvent.respondWith(
+        fetch(request)
+        .catch( error => {
+          return caches.match('/offline.html')
+        })
+      )
+      return
+    }
+
+    // User request image
+    if (request.headers.get('Accept').includes('image') {
+      fetchEvent.respondWith(
+        caches.match(request)
+        .then( responseFromCache => {
+          if (responseFromCache) {
             return responseFromCache
           }
           return fetch(request)
-          .catch( error => {
-            return caches.match('/offline.html')
+          .then( responseFromFetch => {
+            const copy = responseFromFetch.clone()
+            fetchEvent.waitUntil(
+              caches.open(imageCacheName)
+              .then( imageCache => {
+                imageCache.put(request, copy)
+              })
+            )
+            return responseFromFetch
           })
         })
-    )
-  })
-}())
+      )
+      return
+    })
+
+    // Everything else
+    fetchEvent.respondWith(
+      caches.match(request)
+      .then(responseFromCache => {
+        if (responseFromCache) {
+          return responseFromCache
+        }
+        return fetch(request)
+        })
+      )
+    })
+  }() // Call IIFE
+)
