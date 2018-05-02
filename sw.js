@@ -9,11 +9,15 @@
     installEvent.waitUntil(
       caches.open(staticCacheName)
       .then( staticCache => {
+        //non-blocking files
+        staticCache.addAll([])
+        // Must be cached
         return staticCache.addAll([
           '/assets/main.css',
           '/assets/js/main.js',
           '/',
-          '/acerca'
+          '/acerca',
+          '/offline.html'
         ])
       })
     )
@@ -49,6 +53,9 @@
             return responseFromCache
           }
           return fetch(request)
+          .catch( error => {
+            return caches.match('/offline.html')
+          })
         })
     )
   })
