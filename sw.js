@@ -61,7 +61,7 @@
     }
 
     // User request image
-    if (request.headers.get('Accept').includes('image') {
+    if (request.headers.get('Accept').includes('image')) {
       fetchEvent.respondWith(
         caches.match(request)
         .then( responseFromCache => {
@@ -82,7 +82,7 @@
         })
       )
       return
-    })
+    }
 
     // Everything else
     fetchEvent.respondWith(
@@ -94,6 +94,5 @@
         return fetch(request)
         })
       )
-    })
-  }() // Call IIFE
-)
+  })
+}())
