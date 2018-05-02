@@ -19,7 +19,7 @@ addEventListener('install', installEvent => {
 // Active Event
 addEventListener('activate', activateEvent => {
   activateEvent.waitUntil(
-    caches-keys()
+    caches.keys()
     .then( cacheNames => {
       return Promise.all(
         cacheNames.map( cacheName => {
