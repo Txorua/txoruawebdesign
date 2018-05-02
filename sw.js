@@ -1,5 +1,5 @@
 (function () {
-  const version = 'V0.04'
+  const version = 'V0.05'
   const staticCacheName = version + 'staticfiles'
   const imageCacheName = 'images'
   const cacheList = [
@@ -19,7 +19,8 @@
         // Must be cached
         return staticCache.addAll([
           '/assets/main.css',
-          '/assets/js/main.js'
+          '/assets/js/main.js',
+          '/offline.html'
         ])
       })
     )
