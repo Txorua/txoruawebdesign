@@ -17,12 +17,22 @@ addEventListener('install', installEvent => {
 })
 
 // Active Event
-addEventListener('active', activeEvent => {
-  console.log('The service worker is activated.')
-  caches.keys()
-  .then( cacheNames => {
-    console.log(cacheNames)
-  })
+addEventListener('activate', activateEvent => {
+  activateEvent.waitUntil(
+    caches-keys()
+    .then( cacheNames => {
+      return Promise.all(
+        cacheNames.map( cacheName => {
+          if (cacheName != staticCacheName) {
+            return caches.delete(cacheName)
+          }
+        })
+      )
+    })
+    .then( () => {
+      return clients.claim()
+    })
+  )
 })
 
 // Fetch Event
