@@ -9,7 +9,7 @@ addEventListener('install', installEvent => {
     caches.open(staticCacheName)
     .then( staticCache => {
       return staticCache.addAll([
-        '/assets/css/main.css',
+        '/assets/main.css',
         '/assets/js/main.js'
       ])
     })
