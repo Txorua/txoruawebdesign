@@ -1,5 +1,5 @@
 (function () {
-  const version = 'V0.11'
+  const version = 'V0.12'
   const staticCacheName = version + 'staticfiles'
   const imageCacheName = 'images'
   const cacheList = [
@@ -74,13 +74,18 @@
         })
       )
     }
+
+    console.log("Not image!!")
     
     fetchEvent.respondWith(
       caches.match(request)
       .then (responseFromCache => {
         if (responseFromCache) {
+          console.log("Cached!!")
           return responseFromCache
         }
+
+        console.log("Not Cached!!")
 
         fetch(request)
         .then ( responseFromFetch => {
@@ -90,7 +95,7 @@
             caches.open(staticCacheName)
             .then( staticCache => {
               staticCache.put(request, copy)
-              console.log("Cached")
+              console.log("Now is cached")
             })
           )
           console.log("Here you got")
