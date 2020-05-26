@@ -48,7 +48,7 @@ function uglifyJS () {
 }
 
 function minifyCss () {
-  return gulp.src('_site/assets/main.css')
+  return gulp.src('_site/assets/main.css', {allowEmpty: true})
   .pipe(cleanCSS({compability: 'ie8'}))
   .pipe(gulp.dest('_site/assets'))
 }
