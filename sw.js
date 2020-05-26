@@ -1,5 +1,5 @@
 (function () {
-  const version = 'V0.12'
+  const version = 'V0.13'
   const staticCacheName = version + 'staticfiles'
   const imageCacheName = 'images'
   const cacheList = [
@@ -49,39 +49,11 @@
   addEventListener('fetch', fetchEvent => {
     console.log('The service worker is listening.')
     const request = fetchEvent.request
-
-    // User request image
-    if (request.headers.get('Accept').includes('image')) {
-      fetchEvent.respondWith(
-        caches.match(request)
-        .then( responseFromCache => {
-          if (responseFromCache) {
-            return responseFromCache
-          }
-
-          fetch(request)
-          .then( responseFromFetch => {
-            const copy = responseFromFetch.clone()
-            fetchEvent.waitUntil(
-              caches.open(imageCacheName)
-              .then( imageCache => {
-                imageCache.put(request, copy)
-              })
-            )
-            return responseFromFetch
-
-          })
-        })
-      )
-    }
-
-    console.log("Not image!!")
     
     fetchEvent.respondWith(
       caches.match(request)
       .then (responseFromCache => {
         if (responseFromCache) {
-          console.log("Cached!!")
           return responseFromCache
         }
 
@@ -91,14 +63,14 @@
         .then ( responseFromFetch => {
           console.log(request)
           const copy = responseFromFetch.clone()
+          const cacheName = request.headers.get('Accept').includes('image') ? imageCacheName : staticCacheName
           fetch.waitUntil(
-            caches.open(staticCacheName)
-            .then( staticCache => {
-              staticCache.put(request, copy)
-              console.log("Now is cached")
+            caches.open(cacheName)
+            .then( cache => {
+              cache.put(request, copy)
             })
           )
-          console.log("Here you got")
+
           return responseFromFetch
 
         })
