@@ -1,5 +1,5 @@
 (function () {
-  const version = 'V0.09'
+  const version = 'V0.10'
   const staticCacheName = version + 'staticfiles'
   const imageCacheName = 'images'
   const cacheList = [
@@ -80,16 +80,19 @@
         if (responseFromCache) {
           return responseFromCache
         }
-        
+
       fetch(request)
       .then ( responseFromFetch => {
+        console.log(request)
         const copy = responseFromFetch.clone()
         fetch.waitUntil(
           caches.open(staticCacheName)
           .then( staticCache => {
             staticCache.put(request, copy)
+            console.log("Cached")
           })
         )
+        console.log("Here you got")
         return responseFromFetch
       })
       }) 
