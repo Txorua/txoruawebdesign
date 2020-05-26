@@ -80,17 +80,18 @@
         if (responseFromCache) {
           return responseFromCache
         }
-        fetch(request)
-        .then ( responseFromFetch => {
-          const copy = responseFromFetch.clone()
-          fetch.waitUntil(
-            caches.open(staticCacheName)
-            .then( staticCache => {
-              staticCache.put(request, copy)
-            })
-          )
-          return responseFromFetch
-        })
+        
+      fetch(request)
+      .then ( responseFromFetch => {
+        const copy = responseFromFetch.clone()
+        fetch.waitUntil(
+          caches.open(staticCacheName)
+          .then( staticCache => {
+            staticCache.put(request, copy)
+          })
+        )
+        return responseFromFetch
+      })
       }) 
     )
     
