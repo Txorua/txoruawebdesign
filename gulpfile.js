@@ -1,19 +1,19 @@
-const gulp = require('gulp')
 const cp = require('child_process')
-// const gutil = require('gulp-util')
-// const shell = require('gulp-shell')
 const imageResize = require('gulp-image-resize')
-// const del = require('del')
-// const newer = require('gulp-newer')
+const uglify = require('gulp-uglify-es').default
+const cleanCSS = require('gulp-clean-css')
+/*
 const runSequence = require('run-sequence')
 runSequence.options.ignoreUndefinedTasks = true
-// const uglify = require('gulp-uglify')
 const composer = require('gulp-uglify/composer')
 const uglifyes = require('uglify-es')
 const minify = composer(uglifyes, console)
-const cleanCSS = require('gulp-clean-css')
+*/  
+const gulp = require('gulp')
+//const browserSync = require('browser-sync')
 
-gulp.task('resize-images', function () {
+
+function resize_images () {
   const frontEndImages = gulp.src('assets/images/uploads/*')
 
   return frontEndImages
@@ -38,22 +38,36 @@ gulp.task('resize-images', function () {
       upscale: true
     }))
     .pipe(gulp.dest('assets/images/small'))
-})
+}
 
-gulp.task('jekyll-build', function (done) {
-  return cp.spawn('bundle', ['exec', 'jekyll', 'build', '--config', '_config.yml,_config-translations.yml'], {stdio: 'inherit'}).on('close', done)
-})
 
-gulp.task('uglify', function (done) {
+function uglifyJS (done) {
   gulp.src('_site/assets/js/*.js')
-    .pipe(minify())
-    .pipe(gulp.dest('_site/assets/js'))
+  .pipe(uglify())
+  .pipe(gulp.dest('_site/assets/js'))
 
+  done()
+}
+
+function minifyCss (done) {
   gulp.src('_site/assets/main.css')
-    .pipe(cleanCSS({compability: 'ie8'}))
-    .pipe(gulp.dest('_site/assets'))
-})
+  .pipe(cleanCSS({compability: 'ie8'}))
+  .pipe(gulp.dest('_site/assets'))
 
-gulp.task('default', function (done) {
-  runSequence('resize-images', 'jekyll-build', 'uglify', done)
-})
+  done()
+}
+
+/*
+function build (done) {
+  runSequence('resize_images', 'jekyll_build', 'uglify', done)
+}
+*/
+
+function jekyllBuild(done) {
+  //browserSync.notify(messages.jekyllBuild)
+  return cp.spawn('jekyll', ['build', '--config', '_config.yml,_config_dev.yml'], {stdio: 'inherit'}).on('close', done)
+}
+
+exports.minify = gulp.parallel(uglifyJS, minifyCss)
+exports.resize = resize_images
+exports.build = gulp.series(gulp.parallel(uglifyJS, minifyCss, resize_images), jekyllBuild)

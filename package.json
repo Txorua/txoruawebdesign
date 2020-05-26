@@ -15,21 +15,14 @@
     "url": "https://github.com/Txorua/txoruawebdesign/issues"
   },
   "homepage": "https://github.com/Txorua/txoruawebdesign#readme",
-  "dependencies": {
-
-  },
+  "dependencies": {},
   "description": "Txorua Web Design web site",
   "devDependencies": {
-    "gulp-clean-css": "^3.9.3",
-    "gulp-uglify": "^3.0.0",
-    "uglify-es": "^3.3.9",
     "child_process": "^1.0.2",
-    "del": "^3.0.0",
-    "gulp": "^3.9.1",
-    "gulp-image-resize": "^0.13.0",
-    "gulp-newer": "^1.4.0",
-    "gulp-shell": "^0.6.5",
-    "gulp-util": "^3.0.8",
-    "run-sequence": "^2.2.1"
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-gm": "0.0.9",
+    "gulp-image-resize": "^0.13.1",
+    "gulp-uglify-es": "^2.0.0"
   }
 }
