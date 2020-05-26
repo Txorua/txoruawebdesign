@@ -51,16 +51,39 @@
     const request = fetchEvent.request
 
     // USer request HTML
+    /*
     if (request.headers.get('Accept').includes('text/html')) {
       fetchEvent.respondWith(
         fetch(request)
         .catch( error => {
-          //return caches.match('/offline.html')
-          return responseFromCache
+          return caches.match('/offline.html')
         })
       )
       return
     }
+    */
+   if (request.headers.get('Accept').includes('text/html')) {
+    fetchEvent.respondWith(
+      caches.match(request)
+      .then( responseFromCache => {
+        if (responseFromCache) {
+          return responseFromCache
+        }
+        return fetch(request)
+        .then( responseFromFetch => {
+          const copy = responseFromFetch.clone()
+          fetchEvent.waitUntil(
+            caches.open(staticCacheName)
+            .then( staticCacheName => {
+              staticCacheName.put(request, copy)
+            })
+          )
+          return responseFromFetch
+        })
+      })
+    )
+    return
+  }
 
     // User request image
     if (request.headers.get('Accept').includes('image')) {
