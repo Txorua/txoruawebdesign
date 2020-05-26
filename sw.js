@@ -1,5 +1,5 @@
 (function () {
-  const version = 'V0.07'
+  const version = 'V0.08'
   const staticCacheName = version + 'staticfiles'
   const imageCacheName = 'images'
   const cacheList = [
@@ -50,41 +50,6 @@
     console.log('The service worker is listening.')
     const request = fetchEvent.request
 
-    // USer request HTML
-    /*
-    if (request.headers.get('Accept').includes('text/html')) {
-      fetchEvent.respondWith(
-        fetch(request)
-        .catch( error => {
-          return caches.match('/offline.html')
-        })
-      )
-      return
-    }
-    */
-   if (request.headers.get('Accept').includes('text/html')) {
-    fetchEvent.respondWith(
-      caches.match(request)
-      .then( responseFromCache => {
-        if (responseFromCache) {
-          return responseFromCache
-        }
-        return fetch(request)
-        .then( responseFromFetch => {
-          const copy = responseFromFetch.clone()
-          fetchEvent.waitUntil(
-            caches.open(staticCacheName)
-            .then( staticCacheName => {
-              staticCacheName.put(request, copy)
-            })
-          )
-          return responseFromFetch
-        })
-      })
-    )
-    return
-  }
-
     // User request image
     if (request.headers.get('Accept').includes('image')) {
       fetchEvent.respondWith(
@@ -108,16 +73,26 @@
       )
       return
     }
-
-    // Everything else
+    
     fetchEvent.respondWith(
       caches.match(request)
-      .then(responseFromCache => {
+      .then (responseFromCache => {
         if (responseFromCache) {
           return responseFromCache
         }
         return fetch(request)
+        .then ( responseFromFetch => {
+          const copy = responseFromFetch.clone()
+          fetch.waitUntil(
+            caches.open(staticCacheName)
+            .then( staticCache => {
+              staticCacheName.put(request, copy)
+            })
+          )
+          return responseFromFetch
         })
-      )
+      }) 
+    )
+    
   })
 }())
