@@ -1,5 +1,5 @@
 (function () {
-  const version = 'V0.13'
+  const version = 'V0.14'
   const staticCacheName = version + 'staticfiles'
   const imageCacheName = 'images'
   const cacheList = [
@@ -64,13 +64,11 @@
           console.log(request)
           const copy = responseFromFetch.clone()
           const cacheName = request.headers.get('Accept').includes('image') ? imageCacheName : staticCacheName
-          fetch.waitUntil(
-            caches.open(cacheName)
-            .then( cache => {
-              cache.put(request, copy)
-            })
-          )
-
+          caches.open(cacheName)
+          .then( cache => {
+            cache.put(request, copy)
+          })
+        
           return responseFromFetch
 
         })
