@@ -41,20 +41,16 @@ function resize_images () {
 }
 
 
-function uglifyJS (done) {
-  gulp.src('_site/assets/js/*.js')
+function uglifyJS () {
+  return gulp.src('_site/assets/js/*.js')
   .pipe(uglify())
   .pipe(gulp.dest('_site/assets/js'))
-
-  done()
 }
 
-function minifyCss (done) {
-  gulp.src('_site/assets/main.css')
+function minifyCss () {
+  return gulp.src('_site/assets/main.css')
   .pipe(cleanCSS({compability: 'ie8'}))
   .pipe(gulp.dest('_site/assets'))
-
-  done()
 }
 
 /*
