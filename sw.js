@@ -86,7 +86,7 @@
           fetch.waitUntil(
             caches.open(staticCacheName)
             .then( staticCache => {
-              staticCacheName.put(request, copy)
+              staticCache.put(request, copy)
             })
           )
           return responseFromFetch
