@@ -1,5 +1,5 @@
 (function () {
-  const version = 'V0.05'
+  const version = 'V0.06'
   const staticCacheName = version + 'staticfiles'
   const imageCacheName = 'images'
   const cacheList = [
@@ -55,7 +55,8 @@
       fetchEvent.respondWith(
         fetch(request)
         .catch( error => {
-          return caches.match('/offline.html')
+          //return caches.match('/offline.html')
+          return responseFromCache
         })
       )
       return
