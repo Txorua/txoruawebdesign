@@ -70,6 +70,9 @@
           })
 
         })
+        .catch (e) {
+          return caches.match('/offline.html')
+        }
       }) 
     )
     
