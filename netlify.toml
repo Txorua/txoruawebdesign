@@ -1,3 +1,7 @@
+[build]
+  command = "gulp build"
+  publish = "_site"
+
 # Config for the Netlify Build Plugin: netlify-plugin-add-instagram
 [[plugins]]
   package = "netlify-plugin-add-instagram"
