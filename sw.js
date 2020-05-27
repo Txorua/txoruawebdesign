@@ -70,9 +70,9 @@
           })
 
         })
-        .catch (e) {
+        .catch (error =>  {
           return caches.match('/offline.html')
-        }
+        })
       }) 
     )
     
