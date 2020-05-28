@@ -11,3 +11,13 @@ intro: >-
 {% for post in posts %}
 - [{{ post.title }}]({{ post.url }}) &bull; {{ post.date | date: '%d-%m-%Y' }}
 {% endfor %}
+
+{% assign igs = site.data.instagram %}
+<div style="display: flex; flex-wrap: wrap;">
+{% for ig in igs %}
+<div style="padding: 0.5rem">
+<img src="{{ site.baseurl }}/{{ ig.localImageURL }}">
+<div>{{ ig.caption | markdownify }}</div>
+</div>
+{% endfor %}
+</div>

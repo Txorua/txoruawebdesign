@@ -9,3 +9,7 @@ assets/images/large
 
 # Local Netlify folder
 .netlify
+
+assets/images/instagram/*
+!assets/images/instagram/.gitkeep
+_data/instagram.json

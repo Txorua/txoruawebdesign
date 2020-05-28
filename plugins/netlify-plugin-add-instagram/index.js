@@ -34,7 +34,11 @@ module.exports = {
           "caption": image.node.edge_media_to_caption.edges[0] ? image.node.edge_media_to_caption.edges[0].node.text : '',
           "instagramURL": `https://www.instagram.com/p/${image.node.shortcode}`,
           "sourceImageURL": `https://www.instagram.com/p/${image.node.shortcode}/media/?size=${inputs.imageSize}`,
-          "localImageURL": localImageURL
+          "localImageURL": localImageURL,
+          "alt": image.node.accessibility_caption,
+          "user": image.node.owner.username,
+          "comments": image.node.edge_media_to_comment.count,
+          "views": image.node.edge_liked_by.count
         })
       }
       await fs.writeFileSync(dataFile, JSON.stringify(instagramData));
