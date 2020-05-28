@@ -48,6 +48,7 @@ exclude:
  - vendor/cache/
  - vendor/gems/
  - vendor/ruby/
+ - plugins/
 
 collections_dir: content
 collections:
