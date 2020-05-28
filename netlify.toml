@@ -3,28 +3,28 @@
   publish = "_site"
 
 # Config for the Netlify Build Plugin: netlify-plugin-add-instagram
-#[[plugins]]
-#  package = "netlify-plugin-add-instagram"
+[[plugins]]
+  package = "netlify-plugin-add-instagram"
  
-#  [plugins.inputs]
+  [plugins.inputs]
  
     # Where to put the image files
-#    imageFolder = "assets/images/instagram"
+    imageFolder = "assets/images/instagram"
  
     # Also stash data about the images in a json file
-#    dataFile = "_data/instagram.json"
+    dataFile = "_data/instagram.json"
  
     # How many seconds should we cache the instagram feed for?
-#    feedTTL = 30
+    feedTTL = 30
  
     # How many seconds should we cache each instagram image for?
-#    imageTTL = 1209600   # 2 weeks
+    imageTTL = 1209600   # 2 weeks
  
     # Which of Instagram's image sizes should we fetch?
     # t (thumbnail)
     # m (medium)
     # l (large)
-#    imageSize = "m"
+    imageSize = "m"
  
     # Instagram username
-#   username = "igarbla"
+    username = "igarbla"
