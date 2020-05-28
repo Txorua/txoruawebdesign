@@ -1,5 +1,5 @@
 (function () {
-  const version = 'V0.15'
+  const version = 'V0.18'
   const staticCacheName = version + 'staticfiles'
   const imageCacheName = 'images'
   const cacheList = [
@@ -59,16 +59,15 @@
 
         console.log("Not Cached!!")
 
-        return fetch(request)
+        fetch(request)
         .then ( responseFromFetch => {
-          console.log(request)
           const copy = responseFromFetch.clone()
           const cacheName = request.headers.get('Accept').includes('image') ? imageCacheName : staticCacheName
           caches.open(cacheName)
           .then( cache => {
             cache.put(request, copy)
+            return responseFromFetch
           })
-
         })
         .catch (error =>  {
           return caches.match('/offline.html')
