@@ -16,6 +16,7 @@
   },
   "homepage": "https://github.com/Txorua/txoruawebdesign#readme",
   "dependencies": {
+    "netlify-plugin-add-instagram": "^0.2.2"
   },
   "description": "Txorua Web Design web site",
   "devDependencies": {

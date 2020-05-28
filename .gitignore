@@ -6,3 +6,6 @@ assets/images/small
 assets/images/medium
 assets/images/large
 *.swp
+
+# Local Netlify folder
+.netlify
