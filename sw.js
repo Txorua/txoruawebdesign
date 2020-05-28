@@ -1,5 +1,5 @@
 (function () {
-  const version = 'V0.18'
+  const version = 'V0.37'
   const staticCacheName = version + 'staticfiles'
   const imageCacheName = 'images'
   const cacheList = [
@@ -45,11 +45,30 @@
     )
   })
 
-  // Fetch Event
-  addEventListener('fetch', fetchEvent => {
-    console.log('The service worker is listening.')
-    const request = fetchEvent.request
-    
+  addEventListener('fetch', event => {
+    event.respondWith(async function() {
+      const cachedResponse = await caches.match(event.request);
+      if (cachedResponse) return cachedResponse;
+
+      const responseFromFetch = await fetch(event.request);
+      if (responseFromFetch) {
+        const copy = responseFromFetch.clone()
+        const cacheName = event.request.headers.get('Accept').includes('image') ? imageCacheName : staticCacheName
+        caches.open(cacheName)
+        .then(cache => {
+          cache.put(event.request, copy)
+        })
+          
+        return responseFromFetch
+      };
+      
+    }());
+  });
+
+}())
+
+
+/*
     fetchEvent.respondWith(
       caches.match(request)
       .then (responseFromCache => {
@@ -74,6 +93,4 @@
         })
       }) 
     )
-    
-  })
-}())
+    */
